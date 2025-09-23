@@ -1,7 +1,7 @@
-from rest_framework.serializers import Serializer
+from rest_framework.serializers import ModelSerializer
 from categories.models import Category
 
-class CategorySerializer(Serializer):
+class CategorySerializer(ModelSerializer):
     class Meta:
         model = Category
         fields = ['id', 'name', 'description', 'created_at', 'updated_at', 'image']

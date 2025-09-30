@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from categories.models import Category
 from categories.api.serializers import CategorySerializer
+from rest_framework import filters
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -14,6 +15,10 @@ class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = CategorySerializer
+    
+    # Habilitar el backend de búsqueda
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description']
 
     @action(detail=False, methods=['post'], url_path='upload')
     def upload_image(self, request):

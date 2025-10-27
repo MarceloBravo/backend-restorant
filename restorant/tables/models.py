@@ -4,6 +4,7 @@ from django.db import models
 class Table(models.Model):
     number = models.IntegerField(unique=True)
     capacity = models.IntegerField()
+    active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

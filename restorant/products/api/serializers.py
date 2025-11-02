@@ -7,3 +7,4 @@ class ProductSerializer(ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'title', 'description', 'price', 'active', 'category', 'category_name', 'image', 'created_at', 'updated_at']
+        ref_name = 'Product'

@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('pending', models.BooleanField(default=True)),
                 ('close', models.BooleanField(default=False)),
                 ('quantity', models.IntegerField(default=1)),
-                ('total', models.DecimalField(decimal_places=2, max_digits=6)),
+                ('total', models.DecimalField(decimal_places=0, max_digits=7)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('products', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.product')),

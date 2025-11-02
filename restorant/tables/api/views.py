@@ -6,7 +6,7 @@ from tables.api.serializers import TableSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 class TableViewSet(ModelViewSet):
-    queryset = Table.objects.all()
+    queryset = Table.objects.prefetch_related('orders').all()
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = TableSerializer
 
